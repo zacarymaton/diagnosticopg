@@ -45,7 +45,7 @@ export default class Login extends Component {
   RegistroCorreo=(props)=>{
   //  console.warn(this.props)
     
-    this.props.navigation.navigate('Registrate');
+    this.props.navigation.navigate('Registrarse');
   }
   render() {
 	  const {navigate} = this.props.navigation;

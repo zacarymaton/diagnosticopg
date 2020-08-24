@@ -12,6 +12,9 @@ export default class Form extends Component{
 
 
     Acceso=(props)=>{
+      console.log("ENTRO AL LOGIN===========================================0");
+      this.props.navigation.navigate('Tab');
+      /*
     //   console.warn(this.props) con esto puedo mostrar en pantalla lo que deseo mostrar
     //Aca diseñaremos el login que hara la autentificacion con firebase
     console.log("ENTRO AL LOGIN===========================================0");
@@ -44,7 +47,7 @@ export default class Form extends Component{
     .catch((error) => {
       console.log("Error ==> " , error);
     })
-
+      */
       //this.props.navigation.navigate('Menu');
     }
   
