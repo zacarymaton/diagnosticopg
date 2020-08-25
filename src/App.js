@@ -3,7 +3,7 @@ import 'react-native-gesture-handler';
 
 import Login from './View/Login';
 import Registro from './View/componentes/Registro';
-//import TabMenu from './View/componentes/ProcesoTab';
+import ass from './View/componentes/TabMenu';
 
 import * as React from 'react';
 import { Button, View } from 'react-native';
@@ -64,7 +64,7 @@ function MyStack() {
     >
       <Stack.Screen name="Home" component={Login} />
       <Stack.Screen name="Registrarse" component={Registro} />
-      <Stack.Screen name="Settings" component={SettingsScreen} />
+      <Stack.Screen name="Tab" component={ass} />
     </Stack.Navigator>
   );
 }

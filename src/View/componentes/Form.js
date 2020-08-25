@@ -12,7 +12,7 @@ export default class Form extends Component{
 
 
     Acceso=(props)=>{
-      console.log("ENTRO AL LOGIN===========================================0");
+      console.log("ENTRO AL LOGIN===========================================");
       this.props.navigation.navigate('Tab');
       /*
     //   console.warn(this.props) con esto puedo mostrar en pantalla lo que deseo mostrar
