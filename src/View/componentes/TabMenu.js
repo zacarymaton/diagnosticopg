@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import Icon from 'react-native-vector-icons/Ionicons';
+import Menu from './Menu'
 
 function HomeScreen({ navigation }) {
   
@@ -55,6 +56,7 @@ export default function ass() {
       >
         <Tab.Screen name="Home" component={HomeScreen} />
         <Tab.Screen name="Settings" component={SettingsScreen} />
+        <Tab.Screen name="Menu" component={Menu} />
       </Tab.Navigator>
    
   );
