@@ -1,0 +1,122 @@
+import React, {Component} from 'react';
+import { StyleSheet,TextInput,Text, View,TouchableOpacity,StatusBar} from 'react-native';
+
+export default class Form extends Component{
+    constructor(props) {
+        super(props);
+        this.state = {
+            email: '',
+            password:'',
+        };
+    }
+
+
+    Acceso=(props)=>{
+      console.log("ENTRO AL LOGIN===========================================");
+      this.props.navigation.navigate('Tab');
+      /*
+    //   console.warn(this.props) con esto puedo mostrar en pantalla lo que deseo mostrar
+    //Aca diseñaremos el login que hara la autentificacion con firebase
+    console.log("ENTRO AL LOGIN===========================================0");
+    console.log('EMAIL ==> ', this.state.email);
+    console.log('PASS ==> ', this.state.password);
+    fetch("http://findyourhousesw1.000webhostapp.com/WS/login.php", {
+      method: "POST",
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        correo: this.state.email,
+        contrasenia: this.state.password
+      })
+    })
+    .then((response) => {
+      //console.warn("RESPONSE TOTAL ", response);
+      return response.json();
+    })
+    .then((resp) => {
+      console.log("============ ", resp);
+      //resp = JSON.parse(resp);
+      if (resp.ok) {
+        this.props.navigation.navigate('Menu');
+      } else {
+        alert("Error Correo o contrasenia incorrectos");
+      }
+    })
+    .catch((error) => {
+      console.log("Error ==> " , error);
+    })
+      */
+      //this.props.navigation.navigate('Menu');
+    }
+  
+    onChangeEmail(value) {
+      console.log("VA EMAIL ", value);
+      this.setState({
+        email: value
+      })
+    }
+
+    onChangePassword(value) {
+      this.setState({
+        password: value
+      })
+    }
+  render() {
+    return (
+      <View style={styles.container}> 
+	        <StatusBar
+        backgroundColor='#003300' barStyle='light-content'/>
+        <TextInput 
+          style={styles.inputBox} 
+          placeholder="Email" 
+          keyboardType="email-address" 
+          placeholderTextColor="#ffffff"
+          onSubmitEditing={()=>this.password.focus()}
+          onChangeText={this.onChangeEmail.bind(this)}
+        />
+        <TextInput 
+          style={styles.inputBox} 
+          placeholder="Password" 
+          secureTextEntry={true} 
+          placeholderTextColor="#ffffff"
+          ref={(input)=>this.password=input}
+          onChangeText={this.onChangePassword.bind(this)}
+        />
+        <TouchableOpacity style={styles.Button} onPress={this.Acceso} navigation={this.props.navigation}>
+            <Text style={styles.ButtonText}>{this.props.type}Login</Text>
+        </TouchableOpacity>
+      </View>
+    );
+  }
+}
+const styles = StyleSheet.create({
+    container: {
+        flexGrow: 1,
+      justifyContent: 'center',
+      alignItems: 'center'
+    },
+    inputBox:{
+        width:300,
+        backgroundColor:'rgba(255,255,255,0.3)',
+        borderRadius:25,
+        paddingHorizontal:16,
+        fontSize:16,
+        color:'#ffffff',
+        marginVertical:10,
+    },
+    Button:{
+        width:300,
+        backgroundColor:'#003300',
+        borderRadius:25,
+        marginVertical:10,
+        paddingVertical:13,
+    },
+    ButtonText:{
+        fontSize:16,
+        fontWeight:'500',
+        color:'#ffffff',
+        textAlign:'center',
+    }
+  });
