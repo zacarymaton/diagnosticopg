@@ -31,7 +31,7 @@ function SettingsScreen({ navigation }) {
 
 const Tab = createBottomTabNavigator();
 
-export default function ass() {
+export default function TabMenu() {
   return (
    
       <Tab.Navigator

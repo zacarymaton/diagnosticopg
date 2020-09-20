@@ -66,8 +66,7 @@ export default class Form extends Component{
   render() {
     return (
       <View style={styles.container}> 
-	        <StatusBar
-        backgroundColor='#003300' barStyle='light-content'/>
+	      
         <TextInput 
           style={styles.inputBox} 
           placeholder="Email" 
@@ -108,7 +107,8 @@ const styles = StyleSheet.create({
     },
     Button:{
         width:300,
-        backgroundColor:'#003300',
+        backgroundColor:'#00838F',
+        borderColor: '#003300',
         borderRadius:25,
         marginVertical:10,
         paddingVertical:13,
