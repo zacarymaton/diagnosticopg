@@ -11,7 +11,7 @@ export default class Login extends Component {
         super(props);
     }
 
-    async leer() {
+   /* async leer() {
       console.log("empzo a guardar-......")
       try {
         const value = await AsyncStorage.getItem('JUAN');
@@ -41,18 +41,18 @@ export default class Login extends Component {
       this.leer();
 
     }
-	
+	*/
   RegistroCorreo=(props)=>{
   //  console.warn(this.props)
     
     this.props.navigation.navigate('Registrarse');
   }
   render() {
-	  const {navigate} = this.props.navigation;
+	 // const {navigate} = this.props.navigation;
     return (
       <View style={styles.container}>
        <StatusBar
-        backgroundColor='#003300' barStyle='light-content'/>
+        backgroundColor='#00838F' barStyle='light-content'/>
         <Logo/>
         <Form style="Login" navigation={this.props.navigation}  />
             <View style={styles.RegistrateAhora}>
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
       flex: 1,
       justifyContent: 'center',
       alignItems: 'center',
-      backgroundColor: '#1B5E20',
+      backgroundColor: '#00B8D4',
     },
     RegistrateAhora: {
       flexGrow: 1,

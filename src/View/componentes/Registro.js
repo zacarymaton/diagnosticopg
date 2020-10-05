@@ -98,8 +98,8 @@ class Registro extends React.Component {
     return (
       <View style={styles.container}>
         {/* display */}
-		     <StatusBar
-        backgroundColor='#003300' barStyle='light-content'/>
+        <StatusBar
+        backgroundColor='#00838F' barStyle='light-content'/>
         <Form
           ref="form"
           type={Person}
@@ -123,14 +123,15 @@ var styles = StyleSheet.create({
   buttonText: {
     fontSize: 18,
     color: 'white',
-    alignSelf: 'center'
+    alignSelf: 'center',
+    borderRadius:25,
   },
   button: {
     height: 36,
-    backgroundColor: '#003300',
+    backgroundColor: '#00838F',
     borderColor: '#003300',
     borderWidth: 1,
-    borderRadius: 8,
+    borderRadius:25,    
     marginBottom: 10,
     alignSelf: 'stretch',
     justifyContent: 'center'
