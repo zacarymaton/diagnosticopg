@@ -6,11 +6,13 @@ var Form = t.form.Form;
 
 // here we are: define your domain model
 var Person = t.struct({
-  nombre: t.String,              // a required string
-  usuario: t.maybe(t.String),  // an optional string
+  nombre: t.String,              // a required string  // an optional string
   edad: t.Number,               // a required number
   correo: t.String,	//requiere de una cadena
-  contrasenia: t.String, 			//requiere de una cadena 
+  contrasenia: t.String
+
+  
+  //requiere de una cadena 
 //  AceptarTerminos: t.Boolean        // a boolean
 })
 
@@ -58,31 +60,38 @@ class Registro extends React.Component {
     if (value) { // if validation fails, value will be null
       console.log("PERSONA ===> ",value) // value here is an instance of Person
     }
+    console.log("PERSONA ===> ",value);
+    console.log("PERSONA ===> ",this.refs);
+    
 
-  fetch("http://findyourhousesw1.000webhostapp.com/WS/registrar_usuario.php", {
+  fetch("http://192.168.0.10:8000/api/registrocliente", {
      
       method: "POST",
+     
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
       //  idusuario: 29,
-        correo: value.correo,
-        contrasenia: value.contrasenia,
-        nombre: value.nombre,
-        usuario: value.usuario,
-        edad: value.edad
+        Nombre: value ,
+        Edad: "25",
+        Correo: "react@gmail.com",
+        Direccion: "barrio caminero",
+        Telefono: "60817621",
+        Password: "123456789"
+        
       })
     })
     .then((response) => response.json())
     .then((resp) => {
-      if (resp.ok) {
+      if (resp.values) {
 		  
         alert("Registro Satisfactorio");
         this.props.navigation.navigate('Home');
       } else {
-		 console.log("LLEGO ==> ", resp.ok); 
+     console.log("LLEGO ==> ", resp.values); 
+
         alert( "Error Ocurrio un problema al registrar");
       }
     })
