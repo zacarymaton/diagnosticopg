@@ -46,6 +46,7 @@ var options = {
 	
 } // optional rendering options (see documentation)
 
+
 class Registro extends React.Component {
   constructor(props) {
     super(props)
