@@ -4,12 +4,13 @@ import { Button, TouchableOpacity, View,SafeAreaView,Image,Text ,FlatList, Dimen
 import { createStackNavigator } from '@react-navigation/stack';  
 
 import MenuSE from './MenuSE'
+import ListItem from './ListItem'
 
 const Stack = createStackNavigator();
 export default function MenuPrincipal({ navigation }) {
     return (
       <Stack.Navigator initialRouteName="FirstPage" >
-          <Stack.Screen name="Menu"    component={GritMenu}
+          <Stack.Screen name="Menu"    component={MenuSE}
             options={{
               title: 'Menu', //Set Header Title
               headerLeft: ()=> <NavigationDrawerStructure navigationProps={navigation} />,
@@ -33,7 +34,9 @@ export default function MenuPrincipal({ navigation }) {
               headerTitleStyle: {
                 fontWeight: 'bold', //Set Header text style
               },
-            }} />
+            }} 
+            navigationProps={navigation}
+            />
         </Stack.Navigator>
   
     );

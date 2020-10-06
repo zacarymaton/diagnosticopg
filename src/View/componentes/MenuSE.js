@@ -4,9 +4,25 @@ import ListItem from './ListItem'
 const dataList=[{key:'1'}, {key:'2'}, {key:'3'}, {key:'4'} , {key:'5'},{key:'6'}]
 const numColumns=2
 const WIDTH=Dimensions.get('window').width
+import { createStackNavigator } from '@react-navigation/stack';
+import TabSE from './TabSE';
+const StackSE = createStackNavigator();
+
+function mystackSE() {
+  return (
+    <StackSE.Navigator
+    >
+      <StackSE.Screen name="Home" component={MenuSE} options={{  headerShown: false}} />     
+      <StackSE.Screen name="TabSE" component={TabSE} options={{ headerShown:false  }}/>
+    </StackSE.Navigator>
+  );
+}
+
+
 export default class MenuSE extends Component{
   state={
     columns:2
+    
   }
   
   formatData=(dataList,numColumns)=>{     
@@ -54,19 +70,20 @@ render(){
   <FlatList
    numColumns={columns}
    data={[
-     require("../imagenes/logo.png"),
-     require("../imagenes/icono.png"),
      require("../imagenes/mascota.png"),
-     require("../imagenes/mascota.png"),
-     require("../imagenes/mascota.png"),
-     require("../imagenes/mascota.png")
+     require("../imagenes/citaselectronicas.jpg"),
+     require("../imagenes/profesionales.png"),
+     require("../imagenes/diagnosticos.png"),
+     require("../imagenes/adopciones.jpg"),
+     require("../imagenes/cuidado.png")
    ]}
    renderItem={({item})=>{
-     return <ListItem itemWidth={(WIDTH-(10*columns))/columns} image={item}   navigationProps={this.props.navigation}/>
-   }}
+     return <ListItem itemWidth={(WIDTH-(10*columns))/columns} image={item}  />
+   }}  
    keyExtractor={
      (index)=>{return index}
-   }
+   } 
+   
   />
 </View>
   )

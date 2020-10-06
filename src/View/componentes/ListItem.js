@@ -2,6 +2,10 @@ import React, {Component} from 'react';
 import { StyleSheet,Text,View, FlatList, Image,Dimensions,TouchableWithoutFeedback,Animated } from "react-native";
 
 export default class ListItem extends Component{
+    constructor(props) {
+        super(props);
+  
+    }
     state={
         animatePress: new Animated.Value(1)
     }
@@ -19,9 +23,9 @@ export default class ListItem extends Component{
             useNativeDriver:true
         }).start()
     }
-    _onPress=(props)=>{
-      
-      //navigation.navigate('notifaciones')
+    goToNextScreen = () => {
+        // this.props.navigation.navigate('Detail');
+        this.props.navigation.navigate('notifaciones');
     }
     render(){
         const {itemWidth}=this.props;
@@ -29,7 +33,8 @@ export default class ListItem extends Component{
             <TouchableWithoutFeedback
              onPressIn={()=>this.animateIn()}
              onPressOut={()=>this.animateOut()}
-             onPress={()=>this._onPress()}            
+             onPress={() => this.goToNextScreen()}   
+             navigation={this.props.navigation}                     
             >
                 <Animated.View style={{
                     margin:5,
@@ -46,4 +51,11 @@ export default class ListItem extends Component{
 
     }
 
+}
+//
+const Detail = (props) => {
+    const { navigate } = props.navigation;
+    return(
+        <View><Text>Detail Screen</Text></View>
+    );
 }
