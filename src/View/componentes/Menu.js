@@ -8,7 +8,7 @@ import { createDrawerNavigator, DrawerContentScrollView,
 import { NavigationContainer } from '@react-navigation/native';
 
 import Icon from 'react-native-vector-icons/Ionicons';
-
+import  MenuPrincipal from '../componentes/GritMenu';
 const Stack = createStackNavigator();
 function HomeScreen({ navigation }) {
   
@@ -149,7 +149,7 @@ export default function Menu() {
         itemStyle:{marginVertical:5}
       }}
       >
-        <Drawer.Screen name="Mis Mascotas" component={HomeScreen}    options={{
+        <Drawer.Screen name="Mis Mascotas" component={MenuPrincipal}    options={{
               headerShown: true,          
               drawerIcon:({tintColor})=>(
                 <Icon name='home-sharp' style={{fontSize:24,color:tintColor}}/>
