@@ -4,6 +4,7 @@ import { StyleSheet,Text,View, FlatList, Image,Dimensions,TouchableWithoutFeedba
 export default class ListItem extends Component{
     constructor(props) {
         super(props);
+        const nav = this.props.nav; 
   
     }
     state={
@@ -36,6 +37,8 @@ export default class ListItem extends Component{
              onPress={() => this.goToNextScreen()}   
              navigation={this.props.navigation}                     
             >
+
+
                 <Animated.View style={{
                     margin:5,
                     transform:[

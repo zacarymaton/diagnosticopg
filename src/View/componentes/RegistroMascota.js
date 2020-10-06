@@ -7,11 +7,11 @@ var Form = t.form.Form;
 // here we are: define your domain model
 var Person = t.struct({
   nombre: t.String,              // a required string  // an optional string
-  edad: t.Number,               // a required number
-  direccion: t.String,               // a required number
-  telefono:t.String,
-  correo: t.String,	//requiere de una cadena
-  contrasenia: t.String
+  tipo: t.Number,               // a required number
+  fechanacimiento: t.String,               // a required number
+  color:t.String,
+  nota: t.String,	//requiere de una cadena
+  sexo: t.String
 
   
   //requiere de una cadena 
@@ -21,32 +21,35 @@ var Person = t.struct({
 var options = {
  fields: {
     nombre: {
-	  placeholder: 'Ingresa su Nombre Completo',
-      error: 'Tu no has registrado tu nombre'
+	  placeholder: 'Ingresa el Nombre de la mascota',
+      error: 'no inserto nombre'
     },
-    correo: {
-		placeholder: 'Ingresa su Direccion de Correo Preferida',
-      error: 'ingrese una direccion de correo Electronico',
+    tipo: {
+		placeholder: 'Ingresa el tipo de animal',
+      error: 'no inserto el tipo',
     },
-	contrasenia: {
-		password: true,
-	secureTextEntry: true,
-		placeholder: 'Ingresa su contraseña',
-      error: 'ingrese una contraseña',
+	color: {
+		
+		placeholder: 'Ingresa el color',
+      error: 'no ingreso el color ',
+    },
+    sexo: {
+		placeholder: 'Ingresa macho o hembra',
+      error: 'no ingreso el sexo ',
     },
  /*  AceptarTerminos: {
       label: 'Aceptar Los Terminos',
     },*/
-	usuario: {
-      label: 'Nombre de Usuario (Opcional)',
-	  placeholder: 'Ingresa su Nombre de Usuario',
+	nota: {
+      label: 'Nota',
+	  placeholder: 'no ingreso ',
     },
   },
   
 	
 } // optional rendering options (see documentation)
 
-class Registro extends React.Component {
+class RegistroMascota extends React.Component {
   constructor(props) {
     super(props)
     this.onPress = this.onPress.bind(this)
@@ -61,7 +64,7 @@ class Registro extends React.Component {
     var value = this.refs.form.getValue();
     if (Person) { // if validation fails, value will be null
        // value here is an instance of Person
-      fetch("http://192.168.0.10:8000/api/registrocliente", {
+      fetch("http://192.168.0.10:8000/api/registromascota", {
      
         method: "POST",
        
@@ -71,12 +74,12 @@ class Registro extends React.Component {
         },
         body: JSON.stringify({
         //  idusuario: 29,
-          Nombre: value.nombre ,
-          Edad: value.edad,
-          Correo: value.correo,
-          Direccion: value.direccion,
-          Telefono: value.telefono,
-          Password: value.contrasenia
+          NombreMascota: value.nombre ,
+          Tipo: value.tipo,
+          FechaNacimiento: value.fechanacimiento,
+          Color: value.color,
+          Nota: value.nota,
+          Sexo: value.sexo
           
         })
       })
@@ -153,4 +156,4 @@ var styles = StyleSheet.create({
   }
 })
 
-export default Registro
+export default RegistroMascota

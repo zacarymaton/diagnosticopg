@@ -47,6 +47,7 @@ export default class Login extends Component {
     
     this.props.navigation.navigate('Registrarse');
   }
+
   render() {
 	 // const {navigate} = this.props.navigation;
     return (
@@ -58,6 +59,7 @@ export default class Login extends Component {
             <View style={styles.RegistrateAhora}>
               <Text style={styles.signupText}>Aun no tienes cuenta? </Text>
               <TouchableOpacity onPress={this.RegistroCorreo} navigation={this.props.navigation} >
+                
               <Text style={styles.signupButton}>Registrate</Text>
               </TouchableOpacity>
           </View>             
