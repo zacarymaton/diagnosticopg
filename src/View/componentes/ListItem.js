@@ -7,26 +7,29 @@ export default class ListItem extends Component{
     }
     animateIn(){
         Animated.timing(this.state.animatePress,{
-            toValue:0.8,
-            duration:200
+            toValue:0.4,
+            duration:200,
+            useNativeDriver:true
         }).start()
     }
     animateOut(){
         Animated.timing(this.state.animatePress,{
             toValue:1,
-            duration:200
+            duration:200,
+            useNativeDriver:true
         }).start()
     }
-    _onPress=()=>{
-        this.navigation.navigate('Citas Medicas')
+    _onPress=(props)=>{
+      
+      //navigation.navigate('notifaciones')
     }
     render(){
-        const {itemWidth}=this.props
+        const {itemWidth}=this.props;
         return(
             <TouchableWithoutFeedback
              onPressIn={()=>this.animateIn()}
              onPressOut={()=>this.animateOut()}
-             onPress={this._onPress}
+             onPress={()=>this._onPress()}            
             >
                 <Animated.View style={{
                     margin:5,
@@ -36,7 +39,7 @@ export default class ListItem extends Component{
                         }
                     ]
                 }}>
-                    <Image style={{width:itemWidth,height:150}} source={this.props.image}></Image>
+                    <Image style={{width:itemWidth,height:150}} source={this.props.image} ></Image>
                 </Animated.View>
             </TouchableWithoutFeedback>
         )

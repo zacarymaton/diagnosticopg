@@ -7,14 +7,9 @@ import MenuSE from './MenuSE'
 
 const Stack = createStackNavigator();
 export default function MenuPrincipal({ navigation }) {
-
-
-
     return (
-      <Stack.Navigator initialRouteName="FirstPage">
-          <Stack.Screen
-            name="Menu"
-            component={GritMenu}
+      <Stack.Navigator initialRouteName="FirstPage" >
+          <Stack.Screen name="Menu"    component={GritMenu}
             options={{
               title: 'Menu', //Set Header Title
               headerLeft: ()=> <NavigationDrawerStructure navigationProps={navigation} />,
@@ -25,30 +20,40 @@ export default function MenuPrincipal({ navigation }) {
               headerTitleStyle: {
                 fontWeight: 'bold', //Set Header text style
               },
-            }}
+            }} 
+            navigationProps={navigation}
           />
-            
+         <Stack.Screen name="notifaciones"    component={NotificationsScreen} options={{
+              title: 'Segunda Pantalla', //Set Header Title
+              headerLeft: ()=> <NavigationDrawerStructure navigationProps={navigation} />,
+              headerStyle: {
+                backgroundColor: '#00B8D4', //Set Header color
+              },
+              headerTintColor: '#fff', //Set Header text color
+              headerTitleStyle: {
+                fontWeight: 'bold', //Set Header text style
+              },
+            }} />
         </Stack.Navigator>
   
     );
   }
 
  const GritMenu = ({ navigation }) => {
-
-
-
-
     return (
-      <SafeAreaView style={{ flex: 1 }}>
-        
-        <MenuSE/>
-
-     
-    
-      </SafeAreaView>
+      <SafeAreaView style={{ flex: 1 }} >        
+        <MenuSE navigation={navigation}/>     
+      </SafeAreaView >
     );
   }
+  function NotificationsScreen({ navigation }) {
 
+    return (
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <Button onPress={() => navigation.goBack()} title="Go back home" />
+      </View>
+    );
+  }
   const NavigationDrawerStructure = (props)=> {
     //Structure for the navigatin Drawer
     const toggleDrawer = () => {

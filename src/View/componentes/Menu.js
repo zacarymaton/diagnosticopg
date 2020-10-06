@@ -14,9 +14,7 @@ function HomeScreen({ navigation }) {
   
   return (
     <Stack.Navigator initialRouteName="FirstPage">
-        <Stack.Screen
-          name="Menu"
-          component={FirstPage}
+        <Stack.Screen  name="Menu"  component={FirstPage}
           options={{
             title: 'Menu', //Set Header Title
             headerLeft: ()=> <NavigationDrawerStructure navigationProps={navigation} />,
@@ -66,11 +64,11 @@ const FirstPage = ({ navigation }) => {
            Aca Se Realizara el Menu del Sistema Experto
           </Text>
           <Button
-            onPress={() => navigation.navigate('SecondPage')}
+            onPress={() => navigation.navigate('Notificaciones')}
             title="Go to Second Page"
           />
           <Button
-            onPress={() => navigation.navigate('ThirdPage')}
+            onPress={() => navigation.navigate('Notificaciones')}
             title="Go to Third Page"
           />
         </View>

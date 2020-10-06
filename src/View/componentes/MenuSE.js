@@ -46,8 +46,9 @@ export default class MenuSE extends Component{
   }
 
 render(){
-  let {container}= styles
-  const {columns}=this.state
+  let {container}= styles;
+  const {columns}=this.state;
+  const {navigate}=this.props.navigation;
   return(
     <View  style={container}>
   <FlatList
@@ -61,7 +62,7 @@ render(){
      require("../imagenes/mascota.png")
    ]}
    renderItem={({item})=>{
-     return <ListItem itemWidth={(WIDTH-(10*columns))/columns} image={item}/>
+     return <ListItem itemWidth={(WIDTH-(10*columns))/columns} image={item}   navigationProps={this.props.navigation}/>
    }}
    keyExtractor={
      (index)=>{return index}
