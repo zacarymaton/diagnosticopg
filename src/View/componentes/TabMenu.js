@@ -5,6 +5,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import Icon from 'react-native-vector-icons/Ionicons';
 import Menu from './Menu'
+import MenuSE from './MenuSE'
 import { Header , Left , Right } from 'native-base'
 
 function HomeScreen({ navigation }) {
