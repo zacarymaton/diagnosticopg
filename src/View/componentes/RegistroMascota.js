@@ -1,5 +1,5 @@
 import React from 'react';
-import {  StyleSheet, Text, View,StatusBar, TouchableHighlight } from 'react-native';
+import {  StyleSheet, Text, View,StatusBar,ScrollView , TouchableHighlight } from 'react-native';
 import t from 'tcomb-form-native';
 
 var Form = t.form.Form;
@@ -7,13 +7,11 @@ var Form = t.form.Form;
 // here we are: define your domain model
 var Person = t.struct({
   nombre: t.String,              // a required string  // an optional string
-  tipo: t.Number,               // a required number
+  tipo: t.String,               // a required number
   fechanacimiento: t.String,               // a required number
   color:t.String,
   nota: t.String,	//requiere de una cadena
   sexo: t.String
-
-  
   //requiere de una cadena 
 //  AceptarTerminos: t.Boolean        // a boolean
 })
@@ -37,9 +35,9 @@ var options = {
 		placeholder: 'Ingresa macho o hembra',
       error: 'no ingreso el sexo ',
     },
- /*  AceptarTerminos: {
-      label: 'Aceptar Los Terminos',
-    },*/
+   fechanacimiento: {
+    placeholder: 'no ingreso ',
+    },
 	nota: {
       label: 'Nota',
 	  placeholder: 'no ingreso ',
@@ -79,16 +77,18 @@ class RegistroMascota extends React.Component {
           FechaNacimiento: value.fechanacimiento,
           Color: value.color,
           Nota: value.nota,
-          Sexo: value.sexo
+          Sexo: value.sexo,
+          IdCliente:2,
           
         })
       })
       .then((response) => response.json())
       .then((resp) => {
+        console.log("respuesta ==> ", resp);
         if (resp.values) {
         
           alert("Registro Satisfactorio");
-          this.props.navigation.navigate('Home');
+          this.props.navigation.navigate('Tab');
         } else {
        console.log("LLEGO ==> ", resp.values); 
   
@@ -103,8 +103,8 @@ class RegistroMascota extends React.Component {
     }else{
       alert("Error");
     }
-    console.log("value ===> ",value);
-    console.log("PERSONA ===> ",Person);
+    console.log("value mascota ===> ",value);
+    console.log("mascota ===> ",Person);
     
     
  
@@ -115,6 +115,7 @@ class RegistroMascota extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+         <ScrollView style={styles.scrollView}>
         {/* display */}
         <StatusBar
         backgroundColor='#00838F' barStyle='light-content'/>
@@ -126,6 +127,7 @@ class RegistroMascota extends React.Component {
         <TouchableHighlight style={styles.button} onPress={this.onPress.bind(this)} underlayColor='#99d9f4'>
           <Text style={styles.buttonText}>Registrarse</Text>
         </TouchableHighlight>
+        </ScrollView>
       </View>
     )
   }
