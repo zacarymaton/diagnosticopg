@@ -3,6 +3,9 @@ import 'react-native-gesture-handler';
 
 import Login from './View/Login';
 import Registro from './View/componentes/Registro';
+
+import RegistroMascota from './View/componentes/RegistroMascota';
+
 import TabMenu from './View/componentes/TabMenu';
 import Menu from './View/componentes/Menu';
 import * as React from 'react';
@@ -62,7 +65,10 @@ function MyStack() {
     >
       <Stack.Screen name="Home" component={Login} options={{  headerShown: false}} />
       <Stack.Screen name="Registrarse" component={Registro} options={{  headerShown: true}}  />
+        
       <Stack.Screen name="Tab" component={TabMenu} options={{ headerShown:false  }}/>
+      <Stack.Screen name="Registrar" component={RegistroMascota} options={{  headerShown: true}}  />
+      
     </Stack.Navigator>
   );
 }

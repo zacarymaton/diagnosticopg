@@ -13,22 +13,21 @@ export default class Form extends Component{
 
     Acceso=(props)=>{
       console.log("ENTRO AL LOGIN===========================================");
-      this.props.navigation.navigate('Tab');
-      /*
+      //this.props.navigation.navigate('Tab');
     //   console.warn(this.props) con esto puedo mostrar en pantalla lo que deseo mostrar
     //Aca diseñaremos el login que hara la autentificacion con firebase
     console.log("ENTRO AL LOGIN===========================================0");
     console.log('EMAIL ==> ', this.state.email);
     console.log('PASS ==> ', this.state.password);
-    fetch("http://findyourhousesw1.000webhostapp.com/WS/login.php", {
+    fetch("http://192.168.0.10:8000/api/Login", {
       method: "POST",
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        correo: this.state.email,
-        contrasenia: this.state.password
+        NombreUsuario: this.state.email,
+        Password: this.state.password
       })
     })
     .then((response) => {
@@ -38,8 +37,9 @@ export default class Form extends Component{
     .then((resp) => {
       console.log("============ ", resp);
       //resp = JSON.parse(resp);
-      if (resp.ok) {
-        this.props.navigation.navigate('Menu');
+      if (resp.values) {
+       // this.props.navigation.navigate('Menu');
+        this.props.navigation.navigate('Tab');
       } else {
         alert("Error Correo o contrasenia incorrectos");
       }
@@ -47,7 +47,7 @@ export default class Form extends Component{
     .catch((error) => {
       console.log("Error ==> " , error);
     })
-      */
+    
       //this.props.navigation.navigate('Menu');
     }
   
@@ -69,7 +69,7 @@ export default class Form extends Component{
 	      
         <TextInput 
           style={styles.inputBox} 
-          placeholder="Email" 
+          placeholder="Email " 
           keyboardType="email-address" 
           placeholderTextColor="#ffffff"
           onSubmitEditing={()=>this.password.focus()}

@@ -78,7 +78,7 @@ render(){
      require("../imagenes/cuidado.png")
    ]}
    renderItem={({item})=>{
-     return <ListItem itemWidth={(WIDTH-(10*columns))/columns} image={item}  />
+     return <ListItem   navigation={this.props.navigation} itemWidth={(WIDTH-(10*columns))/columns} image={item}  />
    }}  
    keyExtractor={
      (index)=>{return index}
