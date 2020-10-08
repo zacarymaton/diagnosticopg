@@ -14,11 +14,27 @@ function HomeScreen({ navigation }) {
     <View style={styles.container}>
       
       <View>
-      <Text>Home!</Text>
+      <Text>Mis Mascotas!</Text>
+      
+      
       <Button
-        title="Go to Settings"
+        title="aGOASDLAKSJDLKASJ"
         onPress={() => navigation.navigate('Citas Medicas')}
       />
+        <Button
+        title="aGOASDLAKSJDLKASJ"
+        onPress={() => navigation.navigate('Citas Medicas')}
+      />
+        <Button
+        title="aGOASDLAKSJDLKASJ"
+        onPress={() => navigation.navigate('Citas Medicas')}
+      />
+        <Button
+        title="aGOASDLAKSJDLKASJ"
+        onPress={() => navigation.navigate('Citas Medicas')}
+      />
+      
+      
       </View>
     </View>
   );
@@ -43,9 +59,9 @@ export default function TabMenu() {
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
 
-          if (route.name === 'Historial Clinico') {
+          if (route.name === 'Registrar  Mascotas') {
             iconName = focused ? 'md-document-attach' : 'md-document-attach-outline';
-          } else if (route.name === 'Citas Medicas') {
+          } else if (route.name === 'Mis Macotas') {
             iconName = focused ? 'list-sharp' : 'list-outline';
           }else if (route.name === 'Menu') {
               iconName = focused ? 'home-sharp' : 'home-outline';
@@ -62,8 +78,8 @@ export default function TabMenu() {
       }}
       > 
         <Tab.Screen name="Menu" component={Menu} />
-        <Tab.Screen name="Historial Clinico" component={HomeScreen} />
-        <Tab.Screen name="Citas Medicas" component={SettingsScreen} />
+        <Tab.Screen name="Mis Macotas" component={HomeScreen} />
+        <Tab.Screen name="Registrar  Mascotas" component={SettingsScreen} />
       
       </Tab.Navigator>
    

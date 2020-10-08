@@ -19,7 +19,7 @@ export default class Form extends Component{
     console.log("ENTRO AL LOGIN===========================================0");
     console.log('EMAIL ==> ', this.state.email);
     console.log('PASS ==> ', this.state.password);
-    fetch("http://192.168.0.10:8000/api/Login", {
+    fetch("http://192.168.0.14:8000/api/Login", {
       method: "POST",
       headers: {
         Accept: 'application/json',
@@ -45,7 +45,8 @@ export default class Form extends Component{
       }
     })
     .catch((error) => {
-      console.log("Error ==> " , error);
+      alert(error);
+      console.log("Error ==> " , error.TypeError);
     })
     
       //this.props.navigation.navigate('Menu');
