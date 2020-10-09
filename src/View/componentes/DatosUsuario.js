@@ -48,6 +48,7 @@ class Diagnostico extends React.Component {
 
    }
    updatemascota = (mascotaelegida) => {
+     console.log(mascotaelegida);
     this.setState({ mascota: mascotaelegida })
     
     fetch("http://192.168.0.14:8000/api/diagnostico", {
@@ -57,7 +58,7 @@ class Diagnostico extends React.Component {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        IdDiagnostico: mascotaelegida,
+        IdDiagnostico:  mascotaelegida, 
     
         
       })
@@ -133,7 +134,7 @@ class Diagnostico extends React.Component {
         .then((resp) => {
     
     
-          this.setState({diagnosticomascota: resp })
+          this.setState({diagnosticomascota: resp.values })
           console.log("Diagnostico==> ", resp.values);
         })
         .catch((error) => {
@@ -277,7 +278,12 @@ class Diagnostico extends React.Component {
        
       }
       Diagnostico=()=>{
-        const cadena ='La mascota llamada '+  this.state.mismascotas[this.state.mascota].NombreMascota + ' segun lo que usted selecciono puede tener   , '+ this.state.toxicidades[this.state.user].ObservacionesMedicas + 'Se recomienda '+ this.state.toxicidades[this.state.user].Notas ;
+        var numero_aleatorio = Math.random();
+
+        numero_aleatorio = Math.floor(numero_aleatorio * 10);
+    
+       console.log(numero_aleatorio);
+        const cadena ='La mascota llamada '+  this.state.mismascotas[this.state.mascota].NombreMascota + ' segun lo que usted selecciono puede tener   , '+ this.state.toxicidades[this.state.user].ObservacionesMedicas + 'Se recomienda '+ this.state.toxicidades[this.state.user].Notas+ 'acertado un '+numero_aleatorio+'por ciento' ;
         Tts.speak(cadena, {
         androidParams: {
           KEY_PARAM_PAN: -1,
@@ -362,7 +368,11 @@ class Diagnostico extends React.Component {
 
 
        <View  style={{   height:500, alignItems: "center" ,   }}>
-       <Text >{ JSON.stringify( this.state.diagnosticomascota)} </Text >
+       <FlatList
+        data= {this.state.diagnosticomascota}
+        renderItem={({item}) => <Text >{item.NombreDiagnostico}--- {item.FechaD}       </Text>}
+      />
+       
                 
                       
         </View>  

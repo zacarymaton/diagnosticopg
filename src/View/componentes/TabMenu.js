@@ -1,5 +1,5 @@
 import  React ,{Component}from 'react';
-import { Button, Text, View ,StyleSheet} from 'react-native';
+import { Button, Text, Picker ,View ,StyleSheet ,FlatList} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
@@ -8,33 +8,52 @@ import Menu from './Menu'
 import MenuSE from './MenuSE'
 import { Header , Left , Right } from 'native-base'
 
-function HomeScreen({ navigation }) {
   
+let mismascotas2 = [];
+fetch("http://192.168.0.14:8000/api/obtenermascotas", {
+    method: "POST",
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      IdCliente: '1',
+    })
+  })
+  .then((response) => {
+   return response.json();
+  })
+  .then((resp) => {
+    console.log("resp ==> ", mismascotas2);
+    mismascotas2= resp.values;
+    
+     console.log("resp ==> ", mismascotas2);
+    
+    })
+  .catch((error) => {
+    console.log("ERROR ==> ", error);
+
+  })
+function HomeScreen({ navigation }) {
+
+
+  
+
+
+
+  console.log("afuera ==> ", mismascotas2);
   return (
+    
+    
     <View style={styles.container}>
       
       <View>
-      <Text>Mis Mascotas!</Text>
-      
-      
-      <Button
-        title="aGOASDLAKSJDLKASJ"
-        onPress={() => navigation.navigate('Citas Medicas')}
-      />
-        <Button
-        title="aGOASDLAKSJDLKASJ"
-        onPress={() => navigation.navigate('Citas Medicas')}
-      />
-        <Button
-        title="aGOASDLAKSJDLKASJ"
-        onPress={() => navigation.navigate('Citas Medicas')}
-      />
-        <Button
-        title="aGOASDLAKSJDLKASJ"
-        onPress={() => navigation.navigate('Citas Medicas')}
-      />
-      
-      
+    
+    
+                {mismascotas2.map( (item, index) => {
+              return  <Picker.Item label={ item['NombreMascota']} value= { index} /> ;
+                })}
+         
       </View>
     </View>
   );
