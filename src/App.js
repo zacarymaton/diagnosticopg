@@ -6,6 +6,9 @@ import Registro from './View/componentes/Registro';
 
 import RegistroMascota from './View/componentes/RegistroMascota';
 
+
+import Diagnostico from './View/componentes/DatosUsuario';
+
 import TabMenu from './View/componentes/TabMenu';
 import Menu from './View/componentes/Menu';
 import * as React from 'react';
@@ -65,7 +68,7 @@ function MyStack() {
     >
       <Stack.Screen name="Home" component={Login} options={{  headerShown: false}} />
       <Stack.Screen name="Registrarse" component={Registro} options={{  headerShown: true}}  />
-        
+      <Stack.Screen name="DatosUsuario" component={Diagnostico} options={{  headerShown: true}}  />
       <Stack.Screen name="Tab" component={TabMenu} options={{ headerShown:false  }}/>
       <Stack.Screen name="Registrar" component={RegistroMascota} options={{  headerShown: true}}  />
       

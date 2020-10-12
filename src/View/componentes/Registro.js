@@ -46,6 +46,7 @@ var options = {
 	
 } // optional rendering options (see documentation)
 
+
 class Registro extends React.Component {
   constructor(props) {
     super(props)
@@ -61,7 +62,8 @@ class Registro extends React.Component {
     var value = this.refs.form.getValue();
     if (Person) { // if validation fails, value will be null
        // value here is an instance of Person
-       fetch("http://192.168.0.10:8000/api/registrocliente", {
+      fetch("http://192.168.0.14:8000/api/registrocliente", {
+
      
         method: "POST",
        

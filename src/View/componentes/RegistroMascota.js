@@ -60,18 +60,15 @@ class RegistroMascota extends React.Component {
   onPress() {
     // call getValue() to get the values of the form
     var value = this.refs.form.getValue();
-    if (Person) { // if validation fails, value will be null
-       // value here is an instance of Person
-      fetch("http://192.168.0.10:8000/api/registromascota", {
-     
+    if (Person) {
+
+      fetch("http://192.168.0.14:8000/api/registromascota", {
         method: "POST",
-       
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-        //  idusuario: 29,
           NombreMascota: value.nombre ,
           Tipo: value.tipo,
           FechaNacimiento: value.fechanacimiento,
@@ -79,7 +76,6 @@ class RegistroMascota extends React.Component {
           Nota: value.nota,
           Sexo: value.sexo,
           IdCliente:2,
-          
         })
       })
       .then((response) => response.json())

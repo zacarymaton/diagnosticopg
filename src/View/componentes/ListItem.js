@@ -26,7 +26,7 @@ export default class ListItem extends Component{
     }
     goToNextScreen = () => {
         // this.props.navigation.navigate('Detail');
-        this.props.navigation.navigate('Registrar');
+        this.props.navigation.navigate('DatosUsuario');
     }
     render(){
         const {itemWidth}=this.props;
